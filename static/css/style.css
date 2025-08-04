@@ -1,0 +1,607 @@
+/* Material Design 界面 CSS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* 基础重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基础样式 */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 容器样式 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 主卡片 */
+.main-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+}
+
+/* 卡片头部 */
+.card-header {
+    padding: 32px 24px 24px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.app-title {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 8px;
+}
+
+.app-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+}
+
+/* 输入区域 */
+.input-section {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Material Design 文本字段 */
+.text-field-container {
+    position: relative;
+}
+
+.text-field {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 56px;
+}
+
+.text-input {
+    width: 100%;
+    height: 100%;
+    padding: 16px 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+    transition: all 0.2s ease;
+}
+
+.text-input::placeholder {
+    color: transparent;
+}
+
+.text-label {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    transform-origin: left top;
+    background: #ffffff;
+    padding: 0 4px;
+}
+
+.text-input:focus + .text-label,
+.text-input:not(:placeholder-shown) + .text-label {
+    transform: translateY(-8px) scale(0.75);
+    color: #1976d2;
+    top: 8px;
+}
+
+.text-field-outline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.outline-start,
+.outline-end {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    border-right: none;
+    border-left: none;
+}
+
+.outline-start {
+    left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.outline-end {
+    right: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.outline-notch {
+    position: absolute;
+    top: 0;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    border-top: 1px solid rgba(0, 0, 0, 0.23);
+}
+
+.outline-panel {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #1976d2;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+}
+
+.text-input:focus ~ .text-field-outline .outline-panel {
+    transform: scaleX(1);
+}
+
+.text-input:focus ~ .text-field-outline .outline-start,
+.text-input:focus ~ .text-field-outline .outline-end,
+.text-input:focus ~ .text-field-outline .outline-notch {
+    border-color: #1976d2;
+}
+
+/* 主按钮 */
+.primary-button {
+    position: relative;
+    height: 40px;
+    padding: 0 24px;
+    background: #1976d2;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(25, 118, 210, 0.2);
+}
+
+.primary-button:hover {
+    background: #1565c0;
+    box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+}
+
+.primary-button:active {
+    background: #0d47a1;
+    box-shadow: 0 2px 4px rgba(25, 118, 210, 0.2);
+}
+
+.primary-button:disabled {
+    background: rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.38);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.button-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.primary-button:active .button-ripple {
+    width: 300px;
+    height: 300px;
+}
+
+/* 步骤器 */
+.stepper-section {
+    padding: 0 24px 24px;
+}
+
+.stepper-container {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.stepper-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stepper-step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.38);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.step-icon .material-icons {
+    font-size: 20px;
+}
+
+.stepper-step.active .step-icon {
+    background: #1976d2;
+    color: #ffffff;
+    animation: pulse 2s infinite;
+}
+
+.stepper-step.completed .step-icon {
+    background: #4caf50;
+    color: #ffffff;
+}
+
+.stepper-step.completed .step-icon .material-icons {
+    font-size: 24px;
+}
+
+.step-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.step-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 4px;
+}
+
+.step-status {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.3s ease;
+}
+
+.stepper-step.active .step-status {
+    color: #1976d2;
+}
+
+.stepper-step.completed .step-status {
+    color: #4caf50;
+}
+
+.step-line {
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    width: 2px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.stepper-step:last-child .step-line {
+    display: none;
+}
+
+.stepper-step.completed .step-line {
+    background: #4caf50;
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(25, 118, 210, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
+    }
+}
+
+/* 输出区域 */
+.output-section {
+    padding: 0 24px 24px;
+}
+
+.output-card {
+    background: #fafafa;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.output-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+    margin: 0;
+}
+
+.output-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* 次要按钮 */
+.secondary-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 16px;
+    background: transparent;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secondary-button:hover {
+    background: rgba(25, 118, 210, 0.04);
+}
+
+.secondary-button .material-icons {
+    font-size: 18px;
+}
+
+.output-content {
+    padding: 24px;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.placeholder-icon {
+    margin-bottom: 16px;
+    color: rgba(0, 0, 0, 0.38);
+}
+
+.placeholder-icon .material-icons {
+    font-size: 48px;
+}
+
+.placeholder-content p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* 笔记内容样式 */
+.note-content {
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.note-content h1,
+.note-content h2,
+.note-content h3 {
+    margin: 24px 0 16px 0;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.note-content h1 {
+    font-size: 24px;
+}
+
+.note-content h2 {
+    font-size: 20px;
+}
+
+.note-content h3 {
+    font-size: 18px;
+}
+
+.note-content p {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+}
+
+.note-content ul,
+.note-content ol {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.note-content li {
+    margin: 8px 0;
+}
+
+.note-content code {
+    background: rgba(0, 0, 0, 0.04);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+}
+
+.note-content pre {
+    background: rgba(0, 0, 0, 0.04);
+    padding: 16px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 16px 0;
+}
+
+.note-content pre code {
+    background: none;
+    padding: 0;
+}
+
+/* Snackbar 通知 */
+.snackbar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #323232;
+    color: #ffffff;
+    padding: 0 24px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    min-width: 288px;
+}
+
+.snackbar.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.snackbar-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 48px;
+}
+
+.snackbar-icon {
+    font-size: 20px;
+}
+
+.snackbar-message {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .main-card {
+        max-width: none;
+    }
+    
+    .card-header {
+        padding: 24px 16px 16px;
+    }
+    
+    .app-title {
+        font-size: 24px;
+    }
+    
+    .input-section {
+        padding: 16px;
+    }
+    
+    .stepper-section {
+        padding: 0 16px 16px;
+    }
+    
+    .output-section {
+        padding: 0 16px 16px;
+    }
+    
+    .output-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .output-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-title {
+        font-size: 20px;
+    }
+    
+    .app-subtitle {
+        font-size: 12px;
+    }
+    
+    .stepper-container {
+        padding: 16px;
+    }
+    
+    .output-content {
+        padding: 16px;
+    }
+    
+    .snackbar {
+        left: 16px;
+        right: 16px;
+        transform: translateY(100px);
+        max-width: none;
+        min-width: auto;
+    }
+    
+    .snackbar.show {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学笔记生成器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 主卡片 -->
+        <div class="main-card">
+            <!-- 卡片头部 -->
+            <div class="card-header">
+                <h1 class="app-title">教学笔记生成器</h1>
+                <p class="app-subtitle">转录老师原声·截取视频PPT</p>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="input-section">
+                <div class="text-field-container">
+                    <div class="text-field">
+                        <input type="text" id="video-url" class="text-input" placeholder=" ">
+                        <label for="video-url" class="text-label">粘贴视频链接</label>
+                        <div class="text-field-outline">
+                            <div class="outline-start"></div>
+                            <div class="outline-notch">
+                                <div class="outline-panel"></div>
+                            </div>
+                            <div class="outline-end"></div>
+                        </div>
+                    </div>
+                </div>
+                <button id="generate-btn" class="primary-button">
+                    <span class="button-text">生成笔记</span>
+                    <div class="button-ripple"></div>
+                </button>
+            </div>
+
+            <!-- 进度步骤器 -->
+            <div class="stepper-section" id="stepper-section" style="display: none;">
+                <div class="stepper-container">
+                    <div class="stepper-steps">
+                        <div class="stepper-step" data-step="download">
+                            <div class="step-icon">
+                                <span class="material-icons">cloud_download</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-title">下载视频</div>
+                                <div class="step-status" id="download-status">等待中</div>
+                            </div>
+                            <div class="step-line"></div>
+                        </div>
+                        
+                        <div class="stepper-step" data-step="extract">
+                            <div class="step-icon">
+                                <span class="material-icons">image</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-title">提取PPT图片</div>
+                                <div class="step-status" id="extract-status">等待中</div>
+                            </div>
+                            <div class="step-line"></div>
+                        </div>
+                        
+                        <div class="stepper-step" data-step="transcribe">
+                            <div class="step-icon">
+                                <span class="material-icons">record_voice_over</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-title">转录语音</div>
+                                <div class="step-status" id="transcribe-status">等待中</div>
+                            </div>
+                            <div class="step-line"></div>
+                        </div>
+                        
+                        <div class="stepper-step" data-step="optimize">
+                            <div class="step-icon">
+                                <span class="material-icons">auto_awesome</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-title">AI文本优化</div>
+                                <div class="step-status" id="optimize-status">等待中</div>
+                            </div>
+                            <div class="step-line"></div>
+                        </div>
+                        
+                        <div class="stepper-step" data-step="complete">
+                            <div class="step-icon">
+                                <span class="material-icons">check_circle</span>
+                            </div>
+                            <div class="step-content">
+                                <div class="step-title">生成完成</div>
+                                <div class="step-status" id="complete-status">等待中</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 输出区域 -->
+            <div class="output-section" id="output-section" style="display: none;">
+                <div class="output-card">
+                    <div class="output-header">
+                        <h2 class="output-title">生成的笔记</h2>
+                    </div>
+                    <div class="output-content" id="notes-output">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">
+                                <span class="material-icons">description</span>
+                            </div>
+                            <p>生成的笔记将显示在这里...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 通知组件 -->
+    <div id="snackbar" class="snackbar">
+        <div class="snackbar-content">
+            <span class="material-icons snackbar-icon"></span>
+            <span class="snackbar-message"></span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

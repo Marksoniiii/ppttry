@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学笔记生成器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="dark">
+    <div class="container">
+        <header>
+            <h1>教学笔记生成器</h1>
+            <p>将您的内容自动转换为结构化笔记</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="form-group">
+                    <label for="content">请输入您想生成笔记的视频链接:</label>
+                    <textarea id="content" placeholder="https://www.bilibili.com/video/BV..."></textarea>
+                </div>
+
+                <button id="generate-btn">生成笔记</button>
+            </section>
+
+            <section class="output-section">
+                <h2>生成的笔记</h2>
+                <div id="notes-output" class="notes-container">
+                    <p class="placeholder">生成的笔记将显示在这里...</p>
+                </div>
+            </section>
+
+            <section class="history-section">
+                <h2>历史记录</h2>
+                <div id="history-list" class="history-container">
+                    <!-- 历史记录将在这里显示 -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

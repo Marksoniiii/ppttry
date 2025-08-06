@@ -264,7 +264,7 @@ def main_pipeline(video_url, device, compute_type):
         if not run_command(['yt-dlp', '-f', 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', '-o', video_path, video_url], "下载完整视频"): return
 
         ppt_output_dir = os.path.join(temp_workspace, 'ppt_images')
-        if not run_command([EVP_PATH, '--raw_frames', '--diff_threshold', '4', ppt_output_dir, video_path], "提取PPT图片"): return
+        if not run_command([EVP_PATH, '--raw_frames', '--diff_threshold', '3', ppt_output_dir, video_path], "提取PPT图片"): return
 
         audio_path = os.path.join(temp_workspace, 'audio.mp3')
         if not run_command([FFMPEG_PATH, '-i', video_path, '-q:a', '0', '-map', 'a', audio_path], "提取音频"): return

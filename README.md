@@ -111,8 +111,8 @@ ppttry/
 
 ### PPT提取参数
 ```python
-# 相似度阈值（0.1-0.9，越小越敏感）
-similarity_threshold = 0.4
+# 相似度阈值（越小越敏感）
+diff_threshold = 4
 
 # 采样频率（每秒帧数）
 sampling_rate = 2  # 每秒2帧

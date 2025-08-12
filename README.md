@@ -1,8 +1,8 @@
 # 教学笔记生成器
 
-一个智能的教学视频处理工具，能够自动从教学视频中提取PPT图片、转录语音内容并整合生成markdown文件。
+能够自动从教学视频中提取PPT图片、转录语音内容并整合生成markdown文件。
 
-## 🌟 功能特点
+## 功能
 
 ### 核心功能
 - **视频下载**: 支持从各种平台下载教学视频
@@ -12,8 +12,8 @@
 - **笔记生成**: 自动生成包含PPT图片和对应文本的结构化笔记
 
 ### 技术特色
-- **高精度PPT检测**: 使用多种算法（aHash、pHash、边缘检测）确保准确提取PPT变化
-- **智能时间戳对齐**: 精确的时间戳映射，确保图片与文本对应
+- **PPT检测**: 使用多种算法（aHash、pHash、边缘检测）确保准确提取PPT变化
+- **时间戳对齐**: 精确的时间戳映射，确保图片与文本对应
 
 ## 📋 系统要求
 
@@ -31,7 +31,7 @@ pip install flask torch openai faster-whisper opencv-python numpy
 - CUDA支持的GPU（用于加速语音转录）
 - Silicon Cloud API Key（用于文本优化）
 
-## 🚀 快速开始
+## 快速开始
 
 ### 1. 克隆项目
 ```bash
@@ -55,10 +55,10 @@ export SILICON_CLOUD_API_KEY="your-api-key"
 python app.py
 ```
 
-### 5. 访问应用
+### 5. 访问
 打开浏览器访问 `http://localhost:5000`
 
-## 📖 使用方法
+## 使用方法
 
 ### Web界面使用
 1. 在输入框中粘贴教学视频链接
@@ -95,7 +95,7 @@ ppttry/
 └── temp/                         # 临时工作目录
 ```
 
-## 🔧 核心模块说明
+## main模块
 
 ### 1. PPT提取模块 (`extract-video-ppt/`)
 - **功能**: 从视频中智能提取PPT图片
@@ -107,7 +107,7 @@ ppttry/
 - **支持**: CPU/GPU加速，多语言支持
 - **优化**: AI辅助文本优化，去除口语化痕迹
 
-## ⚙️ 配置选项
+## something about 参数
 
 ### PPT提取参数
 ```python
@@ -133,7 +133,7 @@ COMPUTE_TYPE = "float16"  # 或 "int8"
 FASTER_WHISPER_MODEL_PATH = "path/to/model"
 ```
 
-## 📊 输出格式
+## about输出
 
 生成的笔记采用Markdown格式，包含：
 
@@ -155,7 +155,7 @@ FASTER_WHISPER_MODEL_PATH = "path/to/model"
 > 对应的转录文本内容...
 ```
 
-## 🛠️ 故障排除
+## 故障
 
 ### 常见问题
 
@@ -183,7 +183,7 @@ FASTER_WHISPER_MODEL_PATH = "path/to/model"
 
 1. **GPU加速**: 确保CUDA环境正确配置
 2. **内存优化**: 处理大视频时增加系统内存
-3. **存储优化**: 定期清理temp目录
+3. **存储优化**: 定期清理temp目录，因为在一些运行失败的调试中工作区的清理的相关代码不会正常执行
 
 
 ### 开发环境设置

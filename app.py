@@ -90,7 +90,7 @@ def process_video_background(video_url, task_id):
         })
         
         ppt_output_dir = os.path.join(temp_workspace, 'ppt_images')
-        if not run_command(['evp', '--raw_frames', '--diff_threshold', '3', ppt_output_dir, video_path], "提取PPT图片"):
+        if not run_command(['evp', '--raw_frames', '--diff_threshold', '3', '--motion_threshold', '0.8', ppt_output_dir, video_path], "提取PPT图片"):  # 修复：降低运动阈值到0.8
             progress_status[task_id].update({
                 'current_step': 'error',
                 'status': '提取PPT图片失败',
